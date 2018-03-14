@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% block head %}
+	<link rel="stylesheet" type="text/css" href="baseLogin.css">
+	<title>TeamF - {% block title} {% endblock %}</title>
+	{% endblock %}
+</head>
+<body>
+	<center><h1>Project A</h1></center>
+	<center><h2>{% block title2 %} {% endblock %}</h2></center>
+
+	<form>
+		<div class="imgcontainer">
+			<img src="imagesavatar.png" alt="Avatar" class="avatar">
+		</div>
+	</form>
+	{% block content %}
+	{% endblock %}
+</body>
+
+</html>
