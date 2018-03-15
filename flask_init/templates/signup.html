@@ -1,51 +1,33 @@
+{% extends 'layout.html' %}
+{% block body %}
 
-{% extends "baseLogin.html" %}
-{%block title %} SignUp {% endblock %}
-{% block head %}
-	{{super()}}
-	<link rel="stylesheet" type="text/css" href="signup.css">
-{% endblock %}
-{%block title2 %} Sign up Here {% endblock %}
-{% block content %}
-<form action="" method="POST">
-	
-	<div class="container">
-	<p>Please Fill in the following Registration Form</p>	
-	<hr>
+<h1>Sign</h1>
 
-	
-	<label for="email"><b>Email</b> </label>
-	<br>
-	<input type="email" placeholder="janesmith@domain.com" name="email" value="{{request.form.emailaddress}}" required>
-	<br>
-	<label for="fname"><b>First Name</b></label>
-	<br>
-	<input type="text" name="fname" placeholder="Jane" name="firstname" value="{{request.form.firstname}}" required >
-	<br>
+{% from "includes/_formhelpers.html" import render_field %}
 
-	<label for="lname"><b>Last Name</b></label>
-	<br>
-	<input type="text" name="lname" placeholder="Smith" name="lastname" value="{{request.form.lastname}}" required >
-	<br>
+<form  method="POST" action="">
 
-	<label for="username"><b> Username </b></label>
-	<br>
-	<input type="text" placeholder="John125" name="username" value="{{request.form.username}} " required>
-	<br>
-
-	<label for="password"><b>Password</b></label>
-	<br>
-	<input type="password" placeholder="Enter Password" name="password" value="{{request.form.password}}" required>
-	<br>
-	<label for="repeat-pass"><b>Re-Enter Password</b></label>
-	<br>
-	<input type="password" placeholder="Confirm Password"  name="repeat-pass" value="{{request.form.repeat-pass}}" required>
-
-
+<div class="form-group">
+{{render_field(form.sn, class_="form-control")}}
 </div>
-
-<div class="submit">
-	<input type="submit" value="Signup">
+<div class="form-group">
+{{render_field(form.username, class_="form-control")}}
 </div>
+<div class="form-group">
+{{render_field(form.last, class_="form-control")}}
+</div>
+<div class="form-group">
+{{render_field(form.first, class_="form-control")}}
+</div>
+<div class="form-group">
+{{render_field(form.email, class_="form-control")}}
+</div>
+<div class="form-group">
+{{render_field(form.password, class_="form-control")}}
+</div>
+<div class="form-group">
+{{render_field(form.confirm, class_="form-control")}}
+</div>
+<p><input type="submit" class="btn-btn-primary" value="Submit"></p>
 </form>
 {% endblock %}
