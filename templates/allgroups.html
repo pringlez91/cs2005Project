@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Groups <small> Welcome {{session.username}}</small></h1>
+  <a class="btn btn-success" href="/creategroup"> Add Group</a>
+  <hr>
+  <ul class="list-group">
+    {% for group in groups %}
+      <li class="list-group-item"><a href="GroupDiscussion/{{group.id}}/">{{group.group_title}}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

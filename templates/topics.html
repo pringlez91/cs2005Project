@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Topics</h1>
+  <table class="table table-striped">
+    {% for topic in topics %}
+    <tr>
+      <td><a href="topic/{{topic.id}}/">{{topic.title}}</a></td>
+      <td>
+        <form action="{{url_for('archive_topic', id=topic.id)}}" method="post">
+          <input type="hidden" name="_method" value="Archive">
+          <input type="submit" value="Archive" class="btn btn-default pull-right">
+        </form>
+      </td>
+      <td>
+        <form action="{{url_for('topic_subscription', id=topic.id)}}" method="post">
+          <input type="hidden" name="_method" value="Subscribe">
+          <input type="submit" value="Subscribe" class="btn btn-default pull-right">
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

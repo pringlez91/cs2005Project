@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>{{group.group_tittle}}</h1>
+  <small>Created by {{group.creator}}</small>
+  <hr>
+  <br>
+      {% for discussion in discussions %}
+          <div>
+          <p>{{ discussion.body_discussion }}</p>
+          <p>Comment by <strong>{{ discussion.writer }}</strong>
+          <hr />
+        </div>
+  <p> Add a comment
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+    {{ render_field(form.body_discussion, class="form-control", rows=5) }}
+    </div>
+    <p><input class="btn btn-default" type="submit" value="send">
+    </form>
+  {% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>{{topic.title}}</h1>
+  <small>Written by {{topic.author}} on {{topic.create_date}}</small>
+  <hr>
+  <div>
+    {{topic.body | safe}}
+  </div>
+</div>
+<br>
+
+    {% for comment in comments %}
+        <div>
+        <p>{{ comment.body_comment }}</p>
+        <p>Comment by <strong>{{ comment.comment_writer }}</strong>
+        <hr />
+      </div>
+      {% endfor %}
+  {% if session.get('username') %}
+  <p> Add a comment
+  {% from "includes/_formhelpers.html" import render_field %}
+   <form method="POST" action="">
+    <div class="form-group">
+      {{ render_field(form.body_comment, class="form-control", rows=5) }}
+    </div>
+    <p><input class="btn btn-default" type="submit" value="Comment">
+    </form>
+  {% endif %}
+{% endblock %}

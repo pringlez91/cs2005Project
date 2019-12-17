@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Topics</h1>
+  <ul class="list-group">
+    {% for topic in topics %}
+      <li class="list-group-item"><a href="view_archive_topic/{{topic.id}}/">{{topic.title}}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
